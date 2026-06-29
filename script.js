@@ -30,7 +30,6 @@ const els = {
   koLayer: document.getElementById("koLayer"),
   victoryLayer: document.getElementById("victoryLayer"),
   victoryImage: document.getElementById("victoryImage"),
-  victoryText: document.getElementById("victoryText"),
   countdown: document.getElementById("countdown"),
   tapStart: document.getElementById("tapStart"),
   trashTalkLeft: document.getElementById("trashTalkLeft"),
@@ -297,7 +296,6 @@ function showVictory(winner) {
 
   els.koLayer.classList.remove("active");
   els.victoryImage.src = winner === 1 ? "assets/jogador1venceu.png" : "assets/jogador2venceu.png";
-  els.victoryText.textContent = `Jogador ${winner} venceu`;
   els.victoryLayer.classList.add("active");
 
   els.continueSound.pause();
@@ -355,7 +353,7 @@ function resetGame() {
 els.pointPlayer1.addEventListener("click", () => scoreFor(1));
 els.pointPlayer2.addEventListener("click", () => scoreFor(2));
 els.koLayer.addEventListener("click", skipKnockout);
-els.victoryLayer.addEventListener("click", resetGame);
+els.countdown.addEventListener("click", resetGame);
 els.volumeRange.addEventListener("input", applyVolume);
 document.addEventListener("click", startMusic, { once: true });
 

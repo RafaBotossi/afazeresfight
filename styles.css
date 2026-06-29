@@ -331,35 +331,15 @@ input {
   background: #000;
 }
 
-.continue-panel {
+.countdown-only {
   position: relative;
   z-index: 1;
-  align-self: end;
-  width: min(680px, calc(100% - 24px));
-  margin-bottom: clamp(14px, 3vw, 32px);
-  display: grid;
-  gap: 12px;
-  justify-items: center;
-  padding: 14px;
-  background: rgba(0, 0, 0, 0.72);
-  border: 3px solid var(--gold);
-  box-shadow: 0 10px 0 #000, 0 0 45px rgba(255, 216, 61, 0.45);
-  text-align: center;
-}
-
-.continue-panel p {
-  margin: 0;
-  color: var(--paper);
-  font-size: clamp(1.4rem, 4vw, 3.4rem);
-  text-transform: uppercase;
-  text-shadow: 4px 4px 0 #000;
-}
-
-.continue-panel strong {
-  font-size: clamp(3rem, 10vw, 7rem);
+  font-size: clamp(7rem, 24vw, 16rem);
   line-height: 0.9;
   color: var(--gold);
-  text-shadow: 5px 5px 0 #000, 0 0 24px rgba(255, 216, 61, 0.8);
+  text-shadow: 7px 7px 0 #000, 0 0 28px rgba(255, 216, 61, 0.9);
+  cursor: pointer;
+  user-select: none;
 }
 
 .shake {
