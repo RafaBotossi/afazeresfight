@@ -143,21 +143,20 @@ input {
 }
 
 .trash-talk {
-  position: fixed;
-  top: 60%;
+  position: absolute;
+  top: 52%;
   z-index: 4;
-  width: max(180px, calc((100vw - min(100vw, calc(100vh - 122px))) / 2 - 34px));
-  min-height: 112px;
-  display: grid;
-  place-items: center;
-  padding: 16px;
-  border: 3px solid currentColor;
+  width: 34%;
+  min-height: 0;
+  display: block;
+  padding: 0;
+  border: 0;
   background: transparent;
   box-shadow: none;
   color: white;
   font-family: Arial, sans-serif;
   font-weight: 950;
-  font-size: clamp(0.92rem, 1.4vw, 1.25rem);
+  font-size: clamp(0.76rem, 1.55vw, 1.25rem);
   line-height: 1.18;
   text-align: center;
   text-transform: uppercase;
@@ -173,12 +172,12 @@ input {
 }
 
 .trash-talk-left {
-  left: 14px;
+  left: 7%;
   color: #ff4aa2;
 }
 
 .trash-talk-right {
-  right: 14px;
+  right: 7%;
   color: #34aaff;
 }
 
@@ -401,22 +400,20 @@ input {
   }
 
   .trash-talk {
-    position: absolute;
-    top: auto;
-    bottom: 12px;
-    width: calc(50% - 16px);
-    min-height: 74px;
-    padding: 8px;
-    font-size: 0.68rem;
-    transform: none;
+    top: 54%;
+    bottom: auto;
+    width: 36%;
+    padding: 0;
+    font-size: 0.62rem;
+    transform: translateY(-50%);
   }
 
   .trash-talk-left {
-    left: 8px;
+    left: 6%;
   }
 
   .trash-talk-right {
-    right: 8px;
+    right: 6%;
   }
 
   .controls {
