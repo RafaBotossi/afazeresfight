@@ -144,24 +144,24 @@ input {
 
 .trash-talk {
   position: fixed;
-  top: 50%;
+  top: 60%;
   z-index: 4;
   width: max(180px, calc((100vw - min(100vw, calc(100vh - 122px))) / 2 - 34px));
   min-height: 112px;
   display: grid;
   place-items: center;
   padding: 16px;
-  border: 3px solid #111;
-  background: rgba(0, 0, 0, 0.78);
-  box-shadow: 0 8px 0 #000, 0 0 0 2px rgba(255, 255, 255, 0.22);
-  color: var(--paper);
+  border: 3px solid currentColor;
+  background: transparent;
+  box-shadow: none;
+  color: white;
   font-family: Arial, sans-serif;
   font-weight: 950;
   font-size: clamp(0.92rem, 1.4vw, 1.25rem);
   line-height: 1.18;
   text-align: center;
   text-transform: uppercase;
-  text-shadow: 2px 2px 0 #000;
+  text-shadow: 2px 2px 0 #000, 0 0 12px #000;
   transform: translateY(-50%);
   opacity: 0;
   transition: opacity 0.25s ease, transform 0.25s ease;
@@ -174,12 +174,12 @@ input {
 
 .trash-talk-left {
   left: 14px;
-  border-color: var(--red);
+  color: #ff4aa2;
 }
 
 .trash-talk-right {
   right: 14px;
-  border-color: var(--blue);
+  color: #34aaff;
 }
 
 .tap-start {
