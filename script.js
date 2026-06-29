@@ -25,6 +25,7 @@ const els = {
   volumeRange: document.getElementById("volumeRange"),
   volumeLabel: document.getElementById("volumeLabel"),
   music: document.getElementById("music"),
+  punchSound: document.getElementById("punchSound"),
   koSound: document.getElementById("koSound"),
   continueSound: document.getElementById("continueSound"),
   koLayer: document.getElementById("koLayer"),
@@ -254,6 +255,7 @@ function applyVolume() {
   const volume = currentVolume();
   els.volumeLabel.textContent = `${els.volumeRange.value}%`;
   els.music.volume = volume;
+  els.punchSound.volume = volume;
   els.koSound.volume = volume;
   els.continueSound.volume = Math.min(1, volume + continueVolumeBoost);
   saveScore();
@@ -296,6 +298,12 @@ function showTrashTalk(scoringPlayer) {
     winnerBox.classList.add("show");
     loserBox.classList.add("show");
   });
+}
+
+function playPunch() {
+  els.punchSound.pause();
+  els.punchSound.currentTime = 0;
+  els.punchSound.play().catch(() => {});
 }
 
 function startMusic() {
@@ -344,6 +352,7 @@ function scoreFor(player) {
 
   updateLifeBars();
   saveScore();
+  playPunch();
   showTrashTalk(player);
   hitStage();
 
