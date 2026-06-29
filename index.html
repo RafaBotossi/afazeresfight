@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>House Fight</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="game" id="game">
+    <section class="stage" id="stage" aria-label="Placar de afazeres domesticos">
+      <div class="hud" aria-live="polite">
+        <article class="fighter fighter-one">
+          <div class="fighter-meta">
+            <span class="name">Jogador 1</span>
+            <span class="score"><span id="lifeValue1">10</span>/10</span>
+          </div>
+          <div class="life-shell">
+            <div class="life-segments" id="segments1"></div>
+            <div class="life-fill" id="lifeBar1"></div>
+          </div>
+        </article>
+
+        <div class="round-badge">
+          <span>VS</span>
+        </div>
+
+        <article class="fighter fighter-two">
+          <div class="fighter-meta">
+            <span class="score"><span id="lifeValue2">10</span>/10</span>
+            <span class="name">Jogador 2</span>
+          </div>
+          <div class="life-shell">
+            <div class="life-segments" id="segments2"></div>
+            <div class="life-fill" id="lifeBar2"></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="tap-start" id="tapStart">Clique para soltar a trilha</div>
+
+      <div class="ko-layer" id="koLayer">
+        <img src="assets/ko.png" alt="KO" />
+      </div>
+
+      <div class="victory-layer" id="victoryLayer">
+        <img id="victoryImage" src="" alt="Vencedor" />
+        <div class="continue-panel">
+          <p id="victoryText">Jogador venceu</p>
+          <strong id="countdown">10</strong>
+          <button class="restart-button" id="restartButton" type="button">COME&Ccedil;AR DE NOVO</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="Controles">
+      <button class="point-button p1" id="pointPlayer1" type="button">
+        <span>Jogador 1</span>
+        GANHOU 1 Ponto
+      </button>
+
+      <label class="volume-control" for="volumeRange">
+        <span>Som <b id="volumeLabel">5%</b></span>
+        <input id="volumeRange" type="range" min="0" max="100" value="5" />
+      </label>
+
+      <button class="point-button p2" id="pointPlayer2" type="button">
+        <span>Jogador 2</span>
+        GANHOU 1 Ponto
+      </button>
+    </section>
+
+    <audio id="music" src="assets/music.mp3" loop preload="auto"></audio>
+    <audio id="koSound" src="assets/KO.mp3" preload="auto"></audio>
+    <audio id="continueSound" src="assets/continue.mp3" loop preload="auto"></audio>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
