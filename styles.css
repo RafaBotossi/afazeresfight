@@ -213,8 +213,7 @@ input {
   width: min(100%, 1000px);
 }
 
-.point-button,
-.restart-button {
+.point-button {
   min-height: 66px;
   border: 3px solid #111;
   color: white;
@@ -241,14 +240,12 @@ input {
   letter-spacing: 0;
 }
 
-.point-button:hover,
-.restart-button:hover {
+.point-button:hover {
   transform: translateY(-2px);
   filter: brightness(1.12);
 }
 
-.point-button:active,
-.restart-button:active {
+.point-button:active {
   transform: translateY(5px);
   box-shadow: 0 3px 0 #000, inset 0 2px 0 rgba(255, 255, 255, 0.42);
 }
@@ -323,6 +320,7 @@ input {
 
 .victory-layer {
   background: #000;
+  cursor: pointer;
 }
 
 .victory-layer img {
@@ -363,13 +361,6 @@ input {
   line-height: 0.9;
   color: var(--gold);
   text-shadow: 5px 5px 0 #000, 0 0 24px rgba(255, 216, 61, 0.8);
-}
-
-.restart-button {
-  min-height: 52px;
-  padding: 8px 24px;
-  background: linear-gradient(135deg, #35ff51, #078422);
-  font-size: clamp(1rem, 2.4vw, 1.5rem);
 }
 
 .shake {

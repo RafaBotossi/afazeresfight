@@ -10,6 +10,7 @@ const state = {
   locked: false,
   musicStarted: false,
   countdownTimer: null,
+  winner: null,
 };
 
 const els = {
@@ -30,7 +31,6 @@ const els = {
   victoryLayer: document.getElementById("victoryLayer"),
   victoryImage: document.getElementById("victoryImage"),
   victoryText: document.getElementById("victoryText"),
-  restartButton: document.getElementById("restartButton"),
   countdown: document.getElementById("countdown"),
   tapStart: document.getElementById("tapStart"),
   trashTalkLeft: document.getElementById("trashTalkLeft"),
@@ -266,6 +266,7 @@ function scoreFor(player) {
 
 function beginKnockout(winner) {
   state.locked = true;
+  state.winner = winner;
   setButtonsDisabled(true);
   els.koLayer.classList.add("active");
 
@@ -275,10 +276,25 @@ function beginKnockout(winner) {
     showVictory(winner);
   });
 
-  els.koSound.onended = () => showVictory(winner);
+  els.koSound.onended = () => {
+    if (!els.victoryLayer.classList.contains("active")) {
+      showVictory(winner);
+    }
+  };
+}
+
+function skipKnockout() {
+  if (!els.koLayer.classList.contains("active") || !state.winner) return;
+
+  els.koSound.onended = null;
+  els.koSound.pause();
+  els.koSound.currentTime = 0;
+  showVictory(state.winner);
 }
 
 function showVictory(winner) {
+  if (els.victoryLayer.classList.contains("active")) return;
+
   els.koLayer.classList.remove("active");
   els.victoryImage.src = winner === 1 ? "assets/jogador1venceu.png" : "assets/jogador2venceu.png";
   els.victoryText.textContent = `Jogador ${winner} venceu`;
@@ -314,6 +330,7 @@ function resetGame() {
   state.life1 = maxLife;
   state.life2 = maxLife;
   state.locked = false;
+  state.winner = null;
 
   clearInterval(state.countdownTimer);
   state.countdownTimer = null;
@@ -325,6 +342,7 @@ function resetGame() {
   saveScore();
 
   els.koSound.pause();
+  els.koSound.onended = null;
   els.koSound.currentTime = 0;
   els.continueSound.pause();
   els.continueSound.currentTime = 0;
@@ -336,7 +354,8 @@ function resetGame() {
 
 els.pointPlayer1.addEventListener("click", () => scoreFor(1));
 els.pointPlayer2.addEventListener("click", () => scoreFor(2));
-els.restartButton.addEventListener("click", resetGame);
+els.koLayer.addEventListener("click", skipKnockout);
+els.victoryLayer.addEventListener("click", resetGame);
 els.volumeRange.addEventListener("input", applyVolume);
 document.addEventListener("click", startMusic, { once: true });
 
