@@ -11,31 +11,24 @@
     <section class="stage" id="stage" aria-label="Placar de afazeres domesticos">
       <div class="hud" aria-live="polite">
         <article class="fighter fighter-one">
-          <div class="fighter-meta">
-            <span class="name">Jogador 1</span>
-            <span class="score"><span id="lifeValue1">10</span>/10</span>
-          </div>
           <div class="life-shell">
             <div class="life-segments" id="segments1"></div>
             <div class="life-fill" id="lifeBar1"></div>
           </div>
+          <span class="sr-only">Vida jogador 1: <span id="lifeValue1">10</span> de 10</span>
         </article>
 
-        <div class="round-badge">
-          <span>VS</span>
-        </div>
-
         <article class="fighter fighter-two">
-          <div class="fighter-meta">
-            <span class="score"><span id="lifeValue2">10</span>/10</span>
-            <span class="name">Jogador 2</span>
-          </div>
           <div class="life-shell">
             <div class="life-segments" id="segments2"></div>
             <div class="life-fill" id="lifeBar2"></div>
           </div>
+          <span class="sr-only">Vida jogador 2: <span id="lifeValue2">10</span> de 10</span>
         </article>
       </div>
+
+      <aside class="trash-talk trash-talk-left" id="trashTalkLeft" aria-live="polite"></aside>
+      <aside class="trash-talk trash-talk-right" id="trashTalkRight" aria-live="polite"></aside>
 
       <div class="tap-start" id="tapStart">Clique para soltar a trilha</div>
 
