@@ -336,8 +336,8 @@ input {
   z-index: 1;
   font-size: clamp(7rem, 24vw, 16rem);
   line-height: 0.9;
-  color: var(--gold);
-  text-shadow: 7px 7px 0 #000, 0 0 28px rgba(255, 216, 61, 0.9);
+  color: transparent;
+  text-shadow: none;
   cursor: pointer;
   user-select: none;
 }

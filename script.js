@@ -10,7 +10,6 @@ const state = {
   locked: false,
   musicStarted: false,
   countdownTimer: null,
-  continueStartTimer: null,
   winner: null,
 };
 
@@ -302,10 +301,7 @@ function showVictory(winner) {
   els.continueSound.pause();
   els.continueSound.currentTime = 0;
   els.continueSound.volume = Math.min(1, currentVolume() + continueVolumeBoost);
-  clearTimeout(state.continueStartTimer);
-  state.continueStartTimer = setTimeout(() => {
-    els.continueSound.play().catch(() => {});
-  }, 500);
+  els.continueSound.play().catch(() => {});
   startCountdown();
 }
 
@@ -334,8 +330,6 @@ function resetGame() {
 
   clearInterval(state.countdownTimer);
   state.countdownTimer = null;
-  clearTimeout(state.continueStartTimer);
-  state.continueStartTimer = null;
 
   els.koLayer.classList.remove("active");
   els.victoryLayer.classList.remove("active");
