@@ -266,10 +266,6 @@ function loadScore() {
 
     state.life1 = clampLife(Number(saved.life1));
     state.life2 = clampLife(Number(saved.life2));
-
-    if (Number.isFinite(Number(saved.volume))) {
-      els.volumeRange.value = Math.round(Math.max(0, Math.min(1, Number(saved.volume))) * 100);
-    }
   } catch {
     localStorage.removeItem(storageKey);
   }
@@ -279,7 +275,6 @@ function saveScore() {
   localStorage.setItem(storageKey, JSON.stringify({
     life1: state.life1,
     life2: state.life2,
-    volume: currentVolume(),
   }));
 }
 
@@ -450,8 +445,9 @@ els.pointPlayer2.addEventListener("click", () => scoreFor(2));
 els.koLayer.addEventListener("click", skipKnockout);
 els.countdown.addEventListener("click", resetGame);
 els.volumeRange.addEventListener("input", applyVolume);
-document.addEventListener("click", startMusic, { once: true });
+document.addEventListener("click", startMusic);
 
+els.volumeRange.value = String(defaultVolume * 100);
 loadScore();
 applyVolume();
 updateLifeBars();
