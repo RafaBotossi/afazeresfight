@@ -309,10 +309,12 @@ function startCountdown() {
   let seconds = 10;
   clearInterval(state.countdownTimer);
   els.countdown.textContent = seconds;
+  els.countdown.classList.add("is-hidden");
 
   state.countdownTimer = setInterval(() => {
     seconds -= 1;
     els.countdown.textContent = seconds;
+    els.countdown.classList.remove("is-hidden");
 
     if (seconds <= 0) {
       clearInterval(state.countdownTimer);
@@ -333,6 +335,7 @@ function resetGame() {
 
   els.koLayer.classList.remove("active");
   els.victoryLayer.classList.remove("active");
+  els.countdown.classList.remove("is-hidden");
   setButtonsDisabled(false);
   updateLifeBars();
   saveScore();
