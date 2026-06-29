@@ -318,8 +318,6 @@ function startCountdown() {
       clearInterval(state.countdownTimer);
       state.countdownTimer = null;
       els.countdown.textContent = "0";
-      els.continueSound.pause();
-      els.continueSound.currentTime = 0;
     }
   }, countdownStepMs);
 }
